@@ -10,7 +10,8 @@ var scene: number;
 
 // Preload Assets required
 var assetData:objects.Asset[] = [
-    {id: "PlayBtn", src: "../../Assets/images/sack.png"}
+    {id: "PlayBtn", src: "../../Assets/images/sack.png"},
+    {id: "GameOverBG", src: "../../Assets/images/bank.png"}
 ];
 
 function preload() {

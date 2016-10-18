@@ -1,10 +1,17 @@
 body {
-    background-color: darkgrey;
+    background-color: #242424;
+}
+
+h2{
+    color: #FFF;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 10px;
 }
 
 .game {
-    width : 80%;
-    margin: 0 auto;
+    margin: 20px auto;
+    text-align: center;
 }
 
 canvas {
@@ -12,6 +19,6 @@ canvas {
     border-radius: 10px;
     text-align: center;
     background-color: white;
-    margin-left: 10%;
+    margin: 0 auto;
     /*HINT: Hide the cursor here */
 }

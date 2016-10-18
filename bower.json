@@ -13,6 +13,7 @@
     "bower_components",
     "Scripts/lib",
     "test",
-    "tests"
+    "tests",
+    ".c9"
   ]
 }
