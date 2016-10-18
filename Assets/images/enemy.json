@@ -14,6 +14,9 @@
 ],
 
 "animations": {
+    "kill": {
+        "frames": [4, 1, 5, 2, 3], "speed": 0.1, next: false
+    },
     "robber": { "frames": [0] },
     "poof2": { "frames": [1] },
     "poof4": { "frames": [2] },

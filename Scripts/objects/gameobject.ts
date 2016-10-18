@@ -4,6 +4,7 @@ module objects {
         private _height:number;
         private _name:string;
         private _position:Vector2;
+        private _deathAnim:string;
 
         // PUBLIC PROPERTIES
         get width() : number {
@@ -40,8 +41,8 @@ module objects {
 
         constructor(atlas: createjs.SpriteSheet, imageString : string, deathAnimString) {
             super(atlas, imageString);
-
             this._initialize(imageString);
+            this._deathAnim = deathAnimString;
             this.start();
         }
 
@@ -53,8 +54,17 @@ module objects {
             this.regY = this.height * 0.5;
             this.position = new Vector2(this.x, this.y);
         }
+        
+        public destroy() : void {
+            this.gotoAndPlay(this._deathAnim);
+        }
 
         public start():void {}
-        public update():void {}
+        
+        public update():void {
+            if(this.currentAnimationFrame == enemyAtlas.getNumFrames("kill") - 1) {
+                currentScene.removeChild(this);
+            }
+        }
     }
 }

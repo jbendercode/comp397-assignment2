@@ -20,5 +20,5 @@ canvas {
     text-align: center;
     background-color: white;
     margin: 0 auto;
-    /*HINT: Hide the cursor here */
+    cursor: url(../../Assets/images/crosshair.png), crosshair;
 }

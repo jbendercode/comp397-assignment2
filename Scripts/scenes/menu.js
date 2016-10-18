@@ -16,7 +16,6 @@ var scenes;
             _super.call(this);
         }
         Menu.prototype.start = function () {
-            console.log("Menu Scene Started");
             // Add bg
             this._bg = new createjs.Bitmap(assets.getResult("GameOverBG"));
             this.addChild(this._bg);
@@ -30,7 +29,6 @@ var scenes;
             this.addChild(this._menuLabel);
             // Add play button
             this._playBtn = new objects.Button("PlayBtn", config.Screen.CENTER_X, config.Screen.CENTER_Y + 150);
-            this._playBtn.cursor = "pointer";
             this.addChild(this._playBtn);
             this._playBtn.on("click", this._playBtnClick, this);
             // Add menu scene to global stage container
@@ -39,7 +37,6 @@ var scenes;
         Menu.prototype.update = function () {
         };
         Menu.prototype._playBtnClick = function (event) {
-            console.log("PRINT");
             scene = config.Scene.GAME;
             changeScene();
         };

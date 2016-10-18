@@ -24,8 +24,6 @@ module scenes {
         }
 
         public start() : void {
-            console.log("Menu Scene Started");
-            
             // Add bg
             this._bg = new createjs.Bitmap(assets.getResult("GameOverBG"));
             this.addChild(this._bg);
@@ -42,7 +40,6 @@ module scenes {
             
             // Add play button
             this._playBtn = new objects.Button("PlayBtn", config.Screen.CENTER_X, config.Screen.CENTER_Y + 150);
-            this._playBtn.cursor = "pointer";
             this.addChild(this._playBtn);
             this._playBtn.on("click", this._playBtnClick, this);
 
@@ -51,10 +48,10 @@ module scenes {
         }
 
         public update() : void {
+            
         }
 
         private _playBtnClick(event : createjs.MouseEvent) {
-            console.log("PRINT");
             scene = config.Scene.GAME;
             changeScene();
         }
