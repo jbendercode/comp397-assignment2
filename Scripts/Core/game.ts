@@ -15,7 +15,10 @@ var assetData:objects.Asset[] = [
     {id: "HowToPlay", src: "../../Assets/images/how-to-play.png"},
     {id: "Play", src: "../../Assets/images/play.png"},
     {id: "BG", src: "../../Assets/images/scrolling-clouds.png"},
-    {id: "Pipe", src: "../../Assets/images/pipe.png"}
+    {id: "Pipe", src: "../../Assets/images/pipe.png"},
+    {id: "Pause", src: "../../Assets/images/pauseBtn.png"},
+    {id: "Board", src: "../../Assets/images/wood-board.png"},
+    {id: "Back", src: "../../Assets/images/back.png"}
 ];
 
 function preload() {
@@ -38,11 +41,11 @@ function init() {
     // Initialize runner spritesheet
     let atlasData = {
 
-        "images": [
+        images: [
             assets.getResult("Runner")
         ],
         
-        "frames": [
+        frames: [
             [1, 1, 100, 94, 0, 50, 47],
             [107, 1, 64, 94, 0, 32, 47],
             [189, 1, 52, 94, 0, 26, 47],
@@ -53,14 +56,14 @@ function init() {
             [566, 1, 66, 94, 0, 33, 47]
         ],
         
-        "animations": {
-            "run": {
-                "frames": [3, 4, 5, 6, 7, 0, 1, 2], "speed": 0.2, next: false
+        animations: {
+            run: {
+                frames: [3, 4, 5, 6, 7, 0, 1, 2], speed: 0.4, next: true
             },
-            "stand": { "frames": [3] }
+            stand: { frames: [2] }
         },
         
-        "texturepacker": [
+        texturepacker: [
                 "SmartUpdateHash: $TexturePacker:SmartUpdate:6b44ef51929ea21e17ff1b07ec9c1090:a443013636a6d3e24441fc0f2a91ca43:a99356c10d69482e9bee53d25c3d05e1$",
                 "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
         ]
