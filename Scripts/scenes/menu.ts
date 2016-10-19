@@ -13,6 +13,7 @@ module scenes {
             
         // Button 
         private _playBtn : objects.Button;
+        private _howToPlayBtn : objects.Button;
         
         // Filter
         private _blurFilter : createjs.BlurFilter;
@@ -25,7 +26,7 @@ module scenes {
 
         public start() : void {
             // Add bg
-            this._bg = new createjs.Bitmap(assets.getResult("GameOverBG"));
+            this._bg = new createjs.Bitmap(assets.getResult("BG"));
             this.addChild(this._bg);
             
             // Add blur filter
@@ -35,11 +36,11 @@ module scenes {
             this._bg.cache(this._bounds.x, this._bounds.y, this._bounds.width, this._bounds.height);
 
             // Add menu label
-            this._menuLabel = new objects.Label("Cops and Robbers", "76px Consolas", "#FFF", config.Screen.CENTER_X, config.Screen.CENTER_Y - 200);
+            this._menuLabel = new objects.Label("Pipe Runner", "76px Impact", "#487FFF", config.Screen.CENTER_X, config.Screen.CENTER_Y - 200);
             this.addChild(this._menuLabel);
             
             // Add play button
-            this._playBtn = new objects.Button("PlayBtn", config.Screen.CENTER_X, config.Screen.CENTER_Y + 150);
+            this._playBtn = new objects.Button("Play", config.Screen.CENTER_X, config.Screen.CENTER_Y + 150);
             this.addChild(this._playBtn);
             this._playBtn.on("click", this._playBtnClick, this);
 

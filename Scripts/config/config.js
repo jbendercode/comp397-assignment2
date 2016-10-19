@@ -8,6 +8,7 @@ var config;
         }
         Scene.MENU = 0;
         Scene.GAME = 1;
+        Scene.INSTRUCTIONS = 2;
         return Scene;
     }());
     config.Scene = Scene;

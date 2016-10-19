@@ -7,10 +7,9 @@ var objects;
 (function (objects) {
     var GameObject = (function (_super) {
         __extends(GameObject, _super);
-        function GameObject(atlas, imageString, deathAnimString) {
+        function GameObject(atlas, imageString) {
             _super.call(this, atlas, imageString);
             this._initialize(imageString);
-            this._deathAnim = deathAnimString;
             this.start();
         }
         Object.defineProperty(GameObject.prototype, "width", {
@@ -63,13 +62,9 @@ var objects;
             this.position = new objects.Vector2(this.x, this.y);
         };
         GameObject.prototype.destroy = function () {
-            this.gotoAndPlay(this._deathAnim);
         };
         GameObject.prototype.start = function () { };
         GameObject.prototype.update = function () {
-            if (this.currentAnimationFrame == enemyAtlas.getNumFrames("kill") - 1) {
-                currentScene.removeChild(this);
-            }
         };
         return GameObject;
     }(createjs.Sprite));

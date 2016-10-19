@@ -5,31 +5,25 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var scenes;
 (function (scenes) {
-    var Play = (function (_super) {
-        __extends(Play, _super);
+    var Instructions = (function (_super) {
+        __extends(Instructions, _super);
         // Button 
         // Filter
         // GameObject
-        function Play() {
+        function Instructions() {
             _super.call(this);
             this.start();
         }
-        Play.prototype.start = function () {
-            // Initialize score to 0
-            this._score = 0;
+        Instructions.prototype.start = function () {
             // Add bg
             this._bg = new createjs.Bitmap(assets.getResult("BG"));
             this.addChild(this._bg);
-            // Add score label
-            this._scoreLabel = new objects.Label("Score: 0", "26px Consolas", "#FFF", config.Screen.CENTER_X, config.Screen.CENTER_Y - 280);
-            this.addChild(this._scoreLabel);
             stage.addChild(this);
         };
-        Play.prototype.update = function () {
-            this._scoreLabel.text = ("Score: " + this._score);
+        Instructions.prototype.update = function () {
         };
-        return Play;
+        return Instructions;
     }(objects.Scene));
-    scenes.Play = Play;
+    scenes.Instructions = Instructions;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=play.js.map
+//# sourceMappingURL=instructions.js.map
