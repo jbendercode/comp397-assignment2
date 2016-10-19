@@ -5,7 +5,6 @@ module objects {
         private _speed : number;
         private _imageString : string;
         private _running : boolean;
-        private _up : boolean;
         private _keyPressed : number;
 
         // public variables
@@ -18,15 +17,18 @@ module objects {
             super(runnerAtlas, imageString);
             this.gotoAndPlay(imageString);
             this._running = true;
-            this._up = true;
             
             window.onkeydown = this._onKeyDown;
             window.onkeyup = this._onKeyUp;
         }
 
         public update() : void {
-            if (!this._up){
-                //this.setTransform(this.x, this.y -= 5, this.scaleX, this.scaleY, this.rotation, this.skewX, this.skewY, this.regX, this.regY);
+            if (!controls.UP){
+                this.scaleY = -1;
+                this.y = this.y = config.Screen.CENTER_Y + 90;
+            } else {
+                this.scaleY = 1;
+                this.y = config.Screen.CENTER_Y;
             }
         }
 
@@ -55,8 +57,7 @@ module objects {
         private _onKeyDown(event : KeyboardEvent) {
             switch(event.keyCode) {
                 case keys.SPACE:
-                    console.log("SPACE key pressed");
-                    this._up = false;
+                    controls.UP = false;
                     break;
             }
         }
@@ -64,7 +65,7 @@ module objects {
         private _onKeyUp(event : KeyboardEvent) {
              switch(event.keyCode) {
                 case keys.SPACE:
-                    this._up = true;
+                    controls.UP = true;
                     break;
             }
         }

@@ -62,6 +62,7 @@ var objects;
             this.position = new objects.Vector2(this.x, this.y);
         };
         GameObject.prototype.destroy = function () {
+            currentScene.removeChild(this);
         };
         GameObject.prototype.start = function () { };
         GameObject.prototype.update = function () {

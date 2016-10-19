@@ -1,6 +1,6 @@
 var controls;
 (function (controls) {
-    controls.UP = false;
+    controls.UP = true;
     controls.DOWN = false;
     controls.RIGHT = false;
     controls.LEFT = false;

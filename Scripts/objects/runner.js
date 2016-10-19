@@ -11,12 +11,17 @@ var objects;
             _super.call(this, runnerAtlas, imageString);
             this.gotoAndPlay(imageString);
             this._running = true;
-            this._up = true;
             window.onkeydown = this._onKeyDown;
             window.onkeyup = this._onKeyUp;
         }
         Runner.prototype.update = function () {
-            if (!this._up) {
+            if (!controls.UP) {
+                this.scaleY = -1;
+                this.y = this.y = config.Screen.CENTER_Y + 90;
+            }
+            else {
+                this.scaleY = 1;
+                this.y = config.Screen.CENTER_Y;
             }
         };
         Runner.prototype.setPosition = function (pos) {
@@ -41,15 +46,14 @@ var objects;
         Runner.prototype._onKeyDown = function (event) {
             switch (event.keyCode) {
                 case keys.SPACE:
-                    console.log("SPACE key pressed");
-                    this._up = false;
+                    controls.UP = false;
                     break;
             }
         };
         Runner.prototype._onKeyUp = function (event) {
             switch (event.keyCode) {
                 case keys.SPACE:
-                    this._up = true;
+                    controls.UP = true;
                     break;
             }
         };

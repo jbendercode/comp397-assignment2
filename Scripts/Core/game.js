@@ -6,6 +6,8 @@ var stage;
 var currentScene;
 var scene;
 var runnerAtlas;
+var pipeAtlas;
+var smokeAtlas;
 // Preload Assets required
 var assetData = [
     { id: "Runner", src: "../../Assets/images/running-sprite.png" },
@@ -15,7 +17,8 @@ var assetData = [
     { id: "Pipe", src: "../../Assets/images/pipe.png" },
     { id: "Pause", src: "../../Assets/images/pauseBtn.png" },
     { id: "Board", src: "../../Assets/images/wood-board.png" },
-    { id: "Back", src: "../../Assets/images/back.png" }
+    { id: "Back", src: "../../Assets/images/back.png" },
+    { id: "Smoke", src: "../../Assets/images/smoke.png" }
 ];
 function preload() {
     // Create a queue for assets being loaded
@@ -49,7 +52,7 @@ function init() {
         ],
         animations: {
             run: {
-                frames: [3, 4, 5, 6, 7, 0, 1, 2], speed: 0.4, next: true
+                frames: [3, 4, 5, 6, 7, 0, 1, 2], speed: 0.3, next: true
             },
             stand: { frames: [2] }
         },
@@ -59,6 +62,49 @@ function init() {
         ]
     };
     runnerAtlas = new createjs.SpriteSheet(atlasData);
+    // Initialize pipe spritesheet
+    var atlasData2 = {
+        images: [
+            assets.getResult("Pipe")
+        ],
+        frames: [
+            [1, 1, 45, 117, 0, 23, 59],
+            [50, 1, 45, 117, 0, 23, 59]
+        ],
+        animations: {
+            pipeStart: { frames: [0] },
+            pipeMiddle: { frames: [1] }
+        },
+        texturepacker: [
+            "SmartUpdateHash: $TexturePacker:SmartUpdate:6b44ef51929ea21e17ff1b07ec9c1090:a443013636a6d3e24441fc0f2a91ca43:a99356c10d69482e9bee53d25c3d05e1$",
+            "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+        ]
+    };
+    pipeAtlas = new createjs.SpriteSheet(atlasData2);
+    // Initialize smoke spritesheet
+    var atlasData3 = {
+        images: [
+            assets.getResult("Smoke")
+        ],
+        frames: [
+            [1, 1, 20, 200, 0, 10, 100],
+            [19, 1, 20, 200, 0, 10, 100],
+            [41, 1, 24, 200, 0, 12, 100],
+            [65, 1, 26, 200, 0, 13, 100],
+            [92, 1, 26, 200, 0, 13, 100],
+            [121, 1, 29, 200, 0, 15, 100]
+        ],
+        animations: {
+            smoke: {
+                frames: [0, 1, 2, 3, 4, 5], speed: 1, next: true
+            }
+        },
+        texturepacker: [
+            "SmartUpdateHash: $TexturePacker:SmartUpdate:6b44ef51929ea21e17ff1b07ec9c1090:a443013636a6d3e24441fc0f2a91ca43:a99356c10d69482e9bee53d25c3d05e1$",
+            "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+        ]
+    };
+    smokeAtlas = new createjs.SpriteSheet(atlasData3);
     scene = config.Scene.MENU;
     changeScene();
 }

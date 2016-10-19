@@ -54,7 +54,7 @@ module objects {
         }
         
         public destroy() : void {
-            
+            currentScene.removeChild(this);
         }
 
         public start():void {}
