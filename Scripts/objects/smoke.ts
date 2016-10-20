@@ -17,7 +17,7 @@ module objects {
         }
 
         public update() : void {
-           
+            
         }
 
         public setPosition(pos : objects.Vector2) : void {

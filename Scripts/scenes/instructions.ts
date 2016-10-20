@@ -58,7 +58,7 @@ module scenes {
             this.addChild(this._instructionBoard);
             
             // Create Instruction Text
-            this._instructionString = "Run as far as you can and avoid the steam vents. \nYou score more points the longer that you survive. \nSwitch sides of the pipe with 'SPACEBAR' key. \n\nGood luck!";
+            this._instructionString = "Run as far as you can and avoid the steam vents. \nYou score more points the longer that you survive. \nHold the 'SPACEBAR' key to run on the bottom of the pipe. \n\nGood luck!";
             this._instructions = new createjs.Text(this._instructionString, "20px Consolas", "#FFF");
             this._instructions.lineWidth = 320;
             this._instructions.lineHeight = 24;

@@ -9,6 +9,7 @@ var config;
         Scene.MENU = 0;
         Scene.GAME = 1;
         Scene.INSTRUCTIONS = 2;
+        Scene.GAMEOVER = 3;
         return Scene;
     }());
     config.Scene = Scene;

@@ -5,6 +5,7 @@ var canvas;
 var stage;
 var currentScene;
 var scene;
+var lastScore;
 var runnerAtlas;
 var pipeAtlas;
 var smokeAtlas;
@@ -18,12 +19,13 @@ var assetData = [
     { id: "Pause", src: "../../Assets/images/pauseBtn.png" },
     { id: "Board", src: "../../Assets/images/wood-board.png" },
     { id: "Back", src: "../../Assets/images/back.png" },
-    { id: "Smoke", src: "../../Assets/images/smoke.png" }
+    { id: "Smoke", src: "../../Assets/images/smoke.png" },
+    { id: "bg-loop", src: "../../Assets/audio/bg-loop.wav" }
 ];
 function preload() {
     // Create a queue for assets being loaded
-    assets = new createjs.LoadQueue(false);
-    // assets.installPlugin(createjs.Sound);
+    assets = new createjs.LoadQueue(true);
+    assets.installPlugin(createjs.Sound);
     // Register callback function to be run when assets complete loading.
     assets.on("complete", init, this);
     assets.loadManifest(assetData);
@@ -35,6 +37,8 @@ function init() {
     stage.enableMouseOver(20);
     createjs.Ticker.setFPS(config.Game.FPS);
     createjs.Ticker.on("tick", this.gameLoop, this);
+    // Play BG music
+    createjs.Sound.play('bg-loop', { loop: -1, volume: 0.4 });
     // Initialize runner spritesheet
     var atlasData = {
         images: [
@@ -131,6 +135,11 @@ function changeScene() {
             stage.removeAllChildren();
             currentScene = new scenes.Instructions();
             console.log("Starting INSTRUCTIONS scene");
+            break;
+        case config.Scene.GAMEOVER:
+            stage.removeAllChildren();
+            currentScene = new scenes.GameOver();
+            console.log("Starting GAMEOVER scene");
             break;
     }
 }
